@@ -8,246 +8,264 @@
    8               		.global __do_copy_data
    9               		.global __do_clear_bss
   17               	.Ltext0:
-  18               	.global	main
-  20               	main:
-  21               	.LFB4:
+  18               	.global	bumpersStateChanged
+  20               	bumpersStateChanged:
+  21               	.LFB3:
   22               	.LM1:
   23               	/* prologue: frame size=0 */
   24               	/* prologue end (size=0) */
   25               	.LM2:
-  26 0000 0E94 0000 		call initRobotBase
-  27               	.LM3:
-  28 0004 80E0      		ldi r24,lo8(gs(bumpersStateChanged))
-  29 0006 90E0      		ldi r25,hi8(gs(bumpersStateChanged))
-  30 0008 0E94 0000 		call BUMPERS_setStateChangedHandler
-  31               	.LM4:
-  32 000c 0E94 0000 		call powerON
-  33               	.LM5:
-  34 0010 80E0      		ldi r24,lo8(0)
-  35 0012 0E94 0000 		call changeDirection
-  36               	.LM6:
-  37 0016 6AE5      		ldi r22,lo8(90)
-  38 0018 8AE5      		ldi r24,lo8(90)
-  39 001a 0E94 0000 		call moveAtSpeed
-  40               	.LM7:
-  41 001e D09A      		sbi 58-0x20,0
-  42               	.LM8:
-  43 0020 D198      		cbi 58-0x20,1
-  44               	.LM9:
-  45 0022 D898      		cbi 59-0x20,0
-  46               	.LM10:
-  47 0024 80E0      		ldi r24,lo8(__c.1830)
-  48 0026 90E0      		ldi r25,hi8(__c.1830)
-  49 0028 0E94 0000 		call writeNStringP
-  50               	.LM11:
-  51 002c 80E0      		ldi r24,lo8(__c.1832)
-  52 002e 90E0      		ldi r25,hi8(__c.1832)
-  53 0030 0E94 0000 		call writeNStringP
-  54               	.L22:
-  55               	.LM12:
-  56 0034 0E94 0000 		call task_RP6System
-  57               	.LM13:
-  58 0038 D89A      		sbi 59-0x20,0
-  59               	.LM14:
-  60 003a 81E0      		ldi r24,lo8(1)
-  61 003c 90E0      		ldi r25,hi8(1)
-  62 003e 0E94 0000 		call mSleep
-  63               	.LM15:
-  64 0042 D898      		cbi 59-0x20,0
-  65               	.LM16:
-  66 0044 1092 0000 		sts (compteur)+1,__zero_reg__
-  67 0048 1092 0000 		sts compteur,__zero_reg__
-  68               	.LM17:
-  69 004c 1092 0000 		sts (distance)+1,__zero_reg__
-  70 0050 1092 0000 		sts distance,__zero_reg__
-  71               	.LM18:
-  72 0054 81E0      		ldi r24,lo8(1)
-  73 0056 0E94 0000 		call readADC
-  74 005a 9093 0000 		sts (adc1)+1,r25
-  75 005e 8093 0000 		sts adc1,r24
-  76               	.LM19:
-  77 0062 892B      		or r24,r25
-  78 0064 01F0      		breq .L22
-  79               	.L16:
-  80               	.LM20:
-  81 0066 8091 0000 		lds r24,compteur
-  82 006a 9091 0000 		lds r25,(compteur)+1
-  83 006e 0196      		adiw r24,1
-  84 0070 9093 0000 		sts (compteur)+1,r25
-  85 0074 8093 0000 		sts compteur,r24
-  86               	.LM21:
-  87 0078 80E0      		ldi r24,lo8(0)
-  88 007a 90E0      		ldi r25,hi8(0)
-  89 007c 0E94 0000 		call mSleep
-  90               	.LM22:
-  91 0080 81E0      		ldi r24,lo8(1)
-  92 0082 0E94 0000 		call readADC
-  93 0086 9093 0000 		sts (adc1)+1,r25
-  94 008a 8093 0000 		sts adc1,r24
-  95               	.LM23:
-  96 008e 892B      		or r24,r25
-  97 0090 01F4      		brne .L16
-  98               	.LM24:
-  99 0092 2091 0000 		lds r18,compteur
- 100 0096 3091 0000 		lds r19,(compteur)+1
- 101 009a 84E6      		ldi r24,lo8(100)
- 102 009c 90E0      		ldi r25,hi8(100)
- 103 009e AC01      		movw r20,r24
- 104 00a0 249F      		mul r18,r20
- 105 00a2 C001      		movw r24,r0
- 106 00a4 259F      		mul r18,r21
- 107 00a6 900D      		add r25,r0
- 108 00a8 349F      		mul r19,r20
- 109 00aa 900D      		add r25,r0
- 110 00ac 1124      		clr r1
- 111 00ae 6AE3      		ldi r22,lo8(58)
- 112 00b0 70E0      		ldi r23,hi8(58)
- 113 00b2 0E94 0000 		call __udivmodhi4
- 114 00b6 CB01      		movw r24,r22
- 115 00b8 7093 0000 		sts (distance)+1,r23
- 116 00bc 6093 0000 		sts distance,r22
- 117               	.LM25:
- 118 00c0 6AE0      		ldi r22,lo8(10)
- 119 00c2 0E94 0000 		call writeInteger
- 120               	.LM26:
- 121 00c6 80E0      		ldi r24,lo8(__c.1837)
- 122 00c8 90E0      		ldi r25,hi8(__c.1837)
- 123 00ca 0E94 0000 		call writeNStringP
- 124               	.LM27:
- 125 00ce 8091 0000 		lds r24,distance
- 126 00d2 9091 0000 		lds r25,(distance)+1
- 127 00d6 0997      		sbiw r24,9
- 128 00d8 00F4      		brsh .L5
- 129 00da 8091 0000 		lds r24,var
- 130 00de 9091 0000 		lds r25,(var)+1
- 131 00e2 8333      		cpi r24,51
- 132 00e4 9105      		cpc r25,__zero_reg__
- 133 00e6 00F4      		brsh .L5
- 134               	.LM28:
- 135 00e8 0196      		adiw r24,1
- 136 00ea 00C0      		rjmp .L21
- 137               	.L5:
- 138               	.LM29:
- 139 00ec 8091 0000 		lds r24,var
- 140 00f0 9091 0000 		lds r25,(var)+1
- 141 00f4 0097      		sbiw r24,0
- 142 00f6 01F0      		breq .L9
- 143               	.LM30:
- 144 00f8 0197      		sbiw r24,1
- 145               	.L21:
- 146 00fa 9093 0000 		sts (var)+1,r25
- 147 00fe 8093 0000 		sts var,r24
- 148               	.LM31:
- 149 0102 8091 0000 		lds r24,var
- 150 0106 9091 0000 		lds r25,(var)+1
- 151 010a 0897      		sbiw r24,8
- 152 010c 00F0      		brlo .L9
- 153               	.LM32:
- 154 010e 89E0      		ldi r24,lo8(9)
- 155 0110 0E94 0000 		call setLEDs
- 156 0114 00C0      		rjmp .L22
- 157               	.L9:
- 158               	.LM33:
- 159 0116 80E0      		ldi r24,lo8(0)
- 160 0118 0E94 0000 		call setLEDs
- 161               	.LM34:
- 162 011c 60E0      		ldi r22,lo8(0)
- 163 011e 80E0      		ldi r24,lo8(0)
- 164 0120 0E94 0000 		call moveAtSpeed
- 165 0124 00C0      		rjmp .L22
- 166               	/* epilogue: frame size=0 */
- 167               	/* epilogue: noreturn */
- 168               	/* epilogue end (size=0) */
- 169               	/* function main size 149 (149) */
- 170               	.LFE4:
- 172               	.global	bumpersStateChanged
- 174               	bumpersStateChanged:
- 175               	.LFB3:
- 176               	.LM35:
- 177               	/* prologue: frame size=0 */
- 178               	/* prologue end (size=0) */
- 179               	.LM36:
- 180 0126 8091 0000 		lds r24,bumper_left
- 181 012a 8823      		tst r24
- 182 012c 01F4      		brne .L24
+  26 0000 8091 0000 		lds r24,bumper_left
+  27 0004 8823      		tst r24
+  28 0006 01F4      		brne .L2
+  29               	.LM3:
+  30 0008 8091 0000 		lds r24,bumper_right
+  31 000c 8823      		tst r24
+  32 000e 01F0      		breq .L5
+  33               	.L2:
+  34               	.LM4:
+  35 0010 60E0      		ldi r22,lo8(0)
+  36 0012 80E0      		ldi r24,lo8(0)
+  37 0014 0E94 0000 		call moveAtSpeed
+  38               	.LM5:
+  39 0018 80E1      		ldi r24,lo8(16)
+  40 001a 0E94 0000 		call setLEDs
+  41               	.LM6:
+  42 001e 8091 0000 		lds r24,stopwatches
+  43 0022 8160      		ori r24,lo8(1)
+  44 0024 8093 0000 		sts stopwatches,r24
+  45               	.L5:
+  46 0028 0895      		ret
+  47               	/* epilogue: frame size=0 */
+  48               	/* epilogue: noreturn */
+  49               	/* epilogue end (size=0) */
+  50               	/* function bumpersStateChanged size 21 (21) */
+  51               	.LFE3:
+  53               	.global	main
+  55               	main:
+  56               	.LFB4:
+  57               	.LM7:
+  58               	/* prologue: frame size=0 */
+  59               	/* prologue end (size=0) */
+  60               	.LM8:
+  61 002a 0E94 0000 		call initRobotBase
+  62               	.LM9:
+  63 002e 80E0      		ldi r24,lo8(gs(bumpersStateChanged))
+  64 0030 90E0      		ldi r25,hi8(gs(bumpersStateChanged))
+  65 0032 0E94 0000 		call BUMPERS_setStateChangedHandler
+  66               	.LM10:
+  67 0036 0E94 0000 		call powerON
+  68               	.LM11:
+  69 003a 80E0      		ldi r24,lo8(0)
+  70 003c 0E94 0000 		call changeDirection
+  71               	.LM12:
+  72 0040 6AE5      		ldi r22,lo8(90)
+  73 0042 8AE5      		ldi r24,lo8(90)
+  74 0044 0E94 0000 		call moveAtSpeed
+  75               	.LM13:
+  76 0048 D09A      		sbi 58-0x20,0
+  77               	.LM14:
+  78 004a D198      		cbi 58-0x20,1
+  79               	.LM15:
+  80 004c D898      		cbi 59-0x20,0
+  81               	.LM16:
+  82 004e 80E0      		ldi r24,lo8(__c.1831)
+  83 0050 90E0      		ldi r25,hi8(__c.1831)
+  84 0052 0E94 0000 		call writeNStringP
+  85               	.LM17:
+  86 0056 80E0      		ldi r24,lo8(__c.1833)
+  87 0058 90E0      		ldi r25,hi8(__c.1833)
+  88 005a 0E94 0000 		call writeNStringP
+  89               	.L27:
+  90               	.LM18:
+  91 005e 0E94 0000 		call task_RP6System
+  92               	.LM19:
+  93 0062 D89A      		sbi 59-0x20,0
+  94               	.LM20:
+  95 0064 81E0      		ldi r24,lo8(1)
+  96 0066 90E0      		ldi r25,hi8(1)
+  97 0068 0E94 0000 		call mSleep
+  98               	.LM21:
+  99 006c D898      		cbi 59-0x20,0
+ 100               	.LM22:
+ 101 006e 1092 0000 		sts (compteur)+1,__zero_reg__
+ 102 0072 1092 0000 		sts compteur,__zero_reg__
+ 103               	.LM23:
+ 104 0076 1092 0000 		sts (distance)+1,__zero_reg__
+ 105 007a 1092 0000 		sts distance,__zero_reg__
+ 106               	.LM24:
+ 107 007e 81E0      		ldi r24,lo8(1)
+ 108 0080 0E94 0000 		call readADC
+ 109 0084 9093 0000 		sts (adc1)+1,r25
+ 110 0088 8093 0000 		sts adc1,r24
+ 111               	.LM25:
+ 112 008c 892B      		or r24,r25
+ 113 008e 01F0      		breq .L27
+ 114               	.L21:
+ 115               	.LM26:
+ 116 0090 8091 0000 		lds r24,compteur
+ 117 0094 9091 0000 		lds r25,(compteur)+1
+ 118 0098 0196      		adiw r24,1
+ 119 009a 9093 0000 		sts (compteur)+1,r25
+ 120 009e 8093 0000 		sts compteur,r24
+ 121               	.LM27:
+ 122 00a2 80E0      		ldi r24,lo8(0)
+ 123 00a4 90E0      		ldi r25,hi8(0)
+ 124 00a6 0E94 0000 		call mSleep
+ 125               	.LM28:
+ 126 00aa 81E0      		ldi r24,lo8(1)
+ 127 00ac 0E94 0000 		call readADC
+ 128 00b0 9093 0000 		sts (adc1)+1,r25
+ 129 00b4 8093 0000 		sts adc1,r24
+ 130               	.LM29:
+ 131 00b8 892B      		or r24,r25
+ 132 00ba 01F4      		brne .L21
+ 133               	.LM30:
+ 134 00bc 2091 0000 		lds r18,compteur
+ 135 00c0 3091 0000 		lds r19,(compteur)+1
+ 136 00c4 84E6      		ldi r24,lo8(100)
+ 137 00c6 90E0      		ldi r25,hi8(100)
+ 138 00c8 AC01      		movw r20,r24
+ 139 00ca 249F      		mul r18,r20
+ 140 00cc C001      		movw r24,r0
+ 141 00ce 259F      		mul r18,r21
+ 142 00d0 900D      		add r25,r0
+ 143 00d2 349F      		mul r19,r20
+ 144 00d4 900D      		add r25,r0
+ 145 00d6 1124      		clr r1
+ 146 00d8 6AE3      		ldi r22,lo8(58)
+ 147 00da 70E0      		ldi r23,hi8(58)
+ 148 00dc 0E94 0000 		call __udivmodhi4
+ 149 00e0 CB01      		movw r24,r22
+ 150 00e2 7093 0000 		sts (distance)+1,r23
+ 151 00e6 6093 0000 		sts distance,r22
+ 152               	.LM31:
+ 153 00ea 6AE0      		ldi r22,lo8(10)
+ 154 00ec 0E94 0000 		call writeInteger
+ 155               	.LM32:
+ 156 00f0 80E0      		ldi r24,lo8(__c.1838)
+ 157 00f2 90E0      		ldi r25,hi8(__c.1838)
+ 158 00f4 0E94 0000 		call writeNStringP
+ 159               	.LM33:
+ 160 00f8 8091 0000 		lds r24,distance
+ 161 00fc 9091 0000 		lds r25,(distance)+1
+ 162 0100 0997      		sbiw r24,9
+ 163 0102 00F4      		brsh .L10
+ 164 0104 8091 0000 		lds r24,var
+ 165 0108 9091 0000 		lds r25,(var)+1
+ 166 010c 8333      		cpi r24,51
+ 167 010e 9105      		cpc r25,__zero_reg__
+ 168 0110 00F4      		brsh .L10
+ 169               	.LM34:
+ 170 0112 0196      		adiw r24,1
+ 171 0114 00C0      		rjmp .L26
+ 172               	.L10:
+ 173               	.LM35:
+ 174 0116 8091 0000 		lds r24,var
+ 175 011a 9091 0000 		lds r25,(var)+1
+ 176 011e 0097      		sbiw r24,0
+ 177 0120 01F0      		breq .L14
+ 178               	.LM36:
+ 179 0122 0197      		sbiw r24,1
+ 180               	.L26:
+ 181 0124 9093 0000 		sts (var)+1,r25
+ 182 0128 8093 0000 		sts var,r24
  183               	.LM37:
- 184 012e 8091 0000 		lds r24,bumper_right
- 185 0132 8823      		tst r24
- 186 0134 01F0      		breq .L27
- 187               	.L24:
+ 184 012c 8091 0000 		lds r24,var
+ 185 0130 9091 0000 		lds r25,(var)+1
+ 186 0134 0897      		sbiw r24,8
+ 187 0136 00F0      		brlo .L14
  188               	.LM38:
- 189 0136 60E0      		ldi r22,lo8(0)
- 190 0138 80E0      		ldi r24,lo8(0)
- 191 013a 0E94 0000 		call moveAtSpeed
- 192               	.LM39:
- 193 013e 80E1      		ldi r24,lo8(16)
- 194 0140 0E94 0000 		call setLEDs
+ 189 0138 89E0      		ldi r24,lo8(9)
+ 190 013a 0E94 0000 		call setLEDs
+ 191               	.LM39:
+ 192 013e 60E0      		ldi r22,lo8(0)
+ 193 0140 80E0      		ldi r24,lo8(0)
+ 194 0142 0E94 0000 		call moveAtSpeed
  195               	.LM40:
- 196 0144 8091 0000 		lds r24,stopwatches
- 197 0148 8160      		ori r24,lo8(1)
- 198 014a 8093 0000 		sts stopwatches,r24
- 199               	.L27:
- 200 014e 0895      		ret
- 201               	/* epilogue: frame size=0 */
- 202               	/* epilogue: noreturn */
- 203               	/* epilogue end (size=0) */
- 204               	/* function bumpersStateChanged size 21 (21) */
- 205               	.LFE3:
- 207               	.global	bytesToReceive
- 208               		.data
- 211               	bytesToReceive:
- 212 0000 01        		.byte	1
- 213               	.global	compteur
- 214               	.global	compteur
- 215               		.section .bss
- 218               	compteur:
- 219 0000 0000      		.skip 2,0
- 220               	.global	distance
- 221               	.global	distance
- 224               	distance:
- 225 0002 0000      		.skip 2,0
- 226               	.global	var
- 227               	.global	var
- 230               	var:
- 231 0004 0000      		.skip 2,0
- 232               		.section	.progmem.data,"a",@progbits
- 235               	__c.1837:
- 236 0000 0A00      		.string	"\n"
- 239               	__c.1832:
- 240 0002 0A44 6562 		.string	"\nDebut Programme\n"
- 240      7574 2050 
- 240      726F 6772 
- 240      616D 6D65 
- 240      0A00 
- 243               	__c.1830:
- 244 0014 0A4A 7573 		.string	"\nJust a simple counter program\n\n"
- 244      7420 6120 
- 244      7369 6D70 
- 244      6C65 2063 
- 244      6F75 6E74 
- 245               		.comm statusLEDs,1,1
- 246               		.comm adc0,2,1
- 247               		.comm adc1,2,1
- 248               		.comm motion_status,1,1
- 249               		.comm receiveBuffer,20,1
- 282               	.Letext0:
+ 196 0146 21E0      		ldi r18,lo8(1)
+ 197 0148 4AE5      		ldi r20,lo8(90)
+ 198 014a 50E0      		ldi r21,hi8(90)
+ 199 014c 62E0      		ldi r22,lo8(2)
+ 200 014e 88E2      		ldi r24,lo8(40)
+ 201 0150 0E94 0000 		call rotate
+ 202               	.LM41:
+ 203 0154 21E0      		ldi r18,lo8(1)
+ 204 0156 40EA      		ldi r20,lo8(416)
+ 205 0158 51E0      		ldi r21,hi8(416)
+ 206 015a 60E0      		ldi r22,lo8(0)
+ 207 015c 82E3      		ldi r24,lo8(50)
+ 208 015e 0E94 0000 		call move
+ 209 0162 00C0      		rjmp .L27
+ 210               	.L14:
+ 211               	.LM42:
+ 212 0164 80E0      		ldi r24,lo8(0)
+ 213 0166 0E94 0000 		call setLEDs
+ 214               	.LM43:
+ 215 016a 6AE5      		ldi r22,lo8(90)
+ 216 016c 8AE5      		ldi r24,lo8(90)
+ 217 016e 0E94 0000 		call moveAtSpeed
+ 218 0172 00C0      		rjmp .L27
+ 219               	/* epilogue: frame size=0 */
+ 220               	/* epilogue: noreturn */
+ 221               	/* epilogue end (size=0) */
+ 222               	/* function main size 167 (167) */
+ 223               	.LFE4:
+ 225               	.global	bytesToReceive
+ 226               		.data
+ 229               	bytesToReceive:
+ 230 0000 01        		.byte	1
+ 231               	.global	compteur
+ 232               	.global	compteur
+ 233               		.section .bss
+ 236               	compteur:
+ 237 0000 0000      		.skip 2,0
+ 238               	.global	distance
+ 239               	.global	distance
+ 242               	distance:
+ 243 0002 0000      		.skip 2,0
+ 244               	.global	var
+ 245               	.global	var
+ 248               	var:
+ 249 0004 0000      		.skip 2,0
+ 250               		.section	.progmem.data,"a",@progbits
+ 253               	__c.1838:
+ 254 0000 0A00      		.string	"\n"
+ 257               	__c.1833:
+ 258 0002 0A44 6562 		.string	"\nDebut Programme\n"
+ 258      7574 2050 
+ 258      726F 6772 
+ 258      616D 6D65 
+ 258      0A00 
+ 261               	__c.1831:
+ 262 0014 0A4A 7573 		.string	"\nJust a simple counter program\n\n"
+ 262      7420 6120 
+ 262      7369 6D70 
+ 262      6C65 2063 
+ 262      6F75 6E74 
+ 263               		.comm statusLEDs,1,1
+ 264               		.comm adc0,2,1
+ 265               		.comm adc1,2,1
+ 266               		.comm motion_status,1,1
+ 267               		.comm receiveBuffer,20,1
+ 300               	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 RP6Base_SerialInterface_01.c
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:3      *ABS*:0000003f __SREG__
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:4      *ABS*:0000003e __SP_H__
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:5      *ABS*:0000003d __SP_L__
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:6      *ABS*:00000000 __tmp_reg__
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:7      *ABS*:00000001 __zero_reg__
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:20     .text:00000000 main
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:174    .text:00000126 bumpersStateChanged
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:243    .progmem.data:00000014 __c.1830
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:239    .progmem.data:00000002 __c.1832
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:218    .bss:00000000 compteur
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:224    .bss:00000002 distance
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:3      *ABS*:0000003f __SREG__
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:20     .text:00000000 bumpersStateChanged
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:55     .text:0000002a main
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:261    .progmem.data:00000014 __c.1831
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:257    .progmem.data:00000002 __c.1833
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:236    .bss:00000000 compteur
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:242    .bss:00000002 distance
                             *COM*:00000002 adc1
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:235    .progmem.data:00000000 __c.1837
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:230    .bss:00000004 var
-C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:211    .data:00000000 bytesToReceive
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:253    .progmem.data:00000000 __c.1838
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:248    .bss:00000004 var
+C:\Users\Admin\AppData\Local\Temp/cc5y3tUe.s:229    .data:00000000 bytesToReceive
                             *COM*:00000001 statusLEDs
                             *COM*:00000002 adc0
                             *COM*:00000001 motion_status
@@ -256,18 +274,20 @@ C:\Users\Admin\AppData\Local\Temp/ccwTnNXa.s:211    .data:00000000 bytesToReceiv
 UNDEFINED SYMBOLS
 __do_copy_data
 __do_clear_bss
+bumper_left
+bumper_right
+moveAtSpeed
+setLEDs
+stopwatches
 initRobotBase
 BUMPERS_setStateChangedHandler
 powerON
 changeDirection
-moveAtSpeed
 writeNStringP
 task_RP6System
 mSleep
 readADC
 __udivmodhi4
 writeInteger
-setLEDs
-bumper_left
-bumper_right
-stopwatches
+rotate
+move

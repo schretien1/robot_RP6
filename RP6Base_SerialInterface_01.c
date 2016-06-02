@@ -34,7 +34,24 @@
 	char receiveBuffer[20]; // our reception buffer
 	uint16_t compteur=0;
 	uint16_t distance=0;
-	uint16_t var = 0;								
+	uint16_t var = 0;						
+
+/***************************************************/
+
+// Speed definitions:
+#define MOVE_SPEED 50
+#define TURN_SPEED 40
+
+
+/*
+uint8_t turn_direction = LEFT;
+turn_direction = LEFT;
+turn_direction = RIGHT;
+
+rotate(TURN_SPEED, turn_direction, 90, BLOCKING);
+move(MOVE_SPEED, FWD, DIST_MM(300), BLOCKING);
+*/
+
 /***********************************************************/
 
 void bumpersStateChanged(void)
@@ -72,6 +89,8 @@ int main(void)
 	BUMPERS_setStateChangedHandler(bumpersStateChanged);
 					 
 	powerON();
+	
+	uint8_t turn_direction = LEFT;
 				
 	changeDirection(FWD);
 	moveAtSpeed(90,90);  
@@ -137,22 +156,21 @@ int main(void)
 				//Si la valeur est bien superieur a 8 on allume la LED
 				if(var>=8)
 				{
-
 					setLEDs(0b001001);
-					moveAtSpeed(0,0);  
-
+					moveAtSpeed(0,0);					
+					rotate(TURN_SPEED, turn_direction, 90, BLOCKING);
+					move(MOVE_SPEED, FWD, DIST_MM(100), BLOCKING);			
 					//avoid.state = IDLE;
 					//mSleep(2000);
 					//mSleep(2000);
 				}
 				else
 				{
-					setLEDs(0b000000);		
+					setLEDs(0b000000);
+					moveAtSpeed(90,90);  
+					
 				}
-			
 			}
-			
 	}
-
 	return 0;
 }

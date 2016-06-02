@@ -205,7 +205,7 @@ LOAD c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1ac4
+.text           0x00000000     0x1ae8
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -279,103 +279,103 @@ LOAD c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
                 0x00000282                __vector_16
                 0x00000282                __vector_18
                 0x00000282                __vector_20
- .text          0x00000286      0x150 RP6Base_SerialInterface_01.o
-                0x000003ac                bumpersStateChanged
-                0x00000286                main
- .text          0x000003d6     0x13d0 ../../RP6lib/RP6base/RP6RobotBaseLib.o
-                0x000003d6                enablePowerOnWarning
-                0x00001788                mSleep
-                0x000005b0                __vector_1
-                0x000006e2                setMotorPower
-                0x0000046e                getBumperRight
-                0x00000630                MOTIONCONTROL_stateChanged_DUMMY
-                0x00000886                IRCOMM_RC5dataReady_DUMMY
-                0x000003e4                disablePowerOnWarning
-                0x00000448                setLEDs
-                0x00001696                rotate
-                0x0000070a                setMotorDir
-                0x00000f56                extIntON
-                0x00000b78                powerOFF
-                0x00000f36                sleep
-                0x00000838                __vector_3
-                0x000003ec                updateStatusLEDs
-                0x00000f46                delayCycles
-                0x00000730                IRCOMM_sendRC5
-                0x00000b04                disableACS
-                0x0000048c                BUMPERS_setStateChangedHandler
-                0x00000b52                setACSPwrMed
-                0x00000888                IRCOMM_setRC5DataReadyHandler
-                0x00000894                ACS_setStateChangedHandler
-                0x000004d6                readADC
-                0x00001576                move
-                0x00000452                getBumperLeft
-                0x0000089e                task_ACS
-                0x0000063c                moveAtSpeed
-                0x00000660                changeDirection
-                0x00000b5c                setACSPwrHigh
-                0x00000b3a                setACSPwrOff
-                0x00000b48                setACSPwrLow
-                0x00000fee                emergencyShutdown
-                0x00000496                task_Bumpers
-                0x00001564                task_RP6System
-                0x00000892                ACS_stateChanged_DUMMY
-                0x00000774                __vector_4
-                0x00000b1e                enableACS
-                0x000005f0                __vector_2
-                0x00000f5c                extIntOFF
-                0x000004f4                startADC
-                0x00000b66                powerON
-                0x00000632                MOTIONCONTROL_setStateChangedHandler
-                0x000010da                task_motionControl
-                0x00000f62                initRobotBase
-                0x0000048a                BUMPERS_stateChanged_DUMMY
-                0x00000ba4                __vector_10
-                0x000006a8                stop
-                0x00000694                isMovementComplete
-                0x000004fe                task_ADC
- .text          0x000017a6      0x1ea ../../RP6lib/RP6common/RP6uart.o
-                0x000017ae                writeString
-                0x000018f8                writeIntegerLength
-                0x0000185c                waitUntilReceptionComplete
-                0x000017e0                __vector_13
-                0x000018a0                writeInteger
-                0x00001894                stopReception
-                0x0000184e                receiveBytes
-                0x000017a6                writeChar
-                0x000017c2                writeStringLength
-                0x000018e4                writeNStringP
-                0x00001866                copyReceivedBytesToBuffer
-                0x00001974                receiveBytesToBuffer
- .text          0x00001990        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_mulsi3.o)
- .text          0x00001990        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
- .text          0x00001990        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
- .text          0x00001990        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
- .text          0x00001990        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
- .text          0x00001990        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
- .text          0x00001990        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
- .text          0x00001990       0x42 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(itoa.o)
-                0x00001990                itoa
- .text          0x000019d2       0x20 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x000019d2                strrev
-                0x000019f2                . = ALIGN (0x2)
+ .text          0x00000286      0x174 RP6Base_SerialInterface_01.o
+                0x00000286                bumpersStateChanged
+                0x000002b0                main
+ .text          0x000003fa     0x13d0 ../../RP6lib/RP6base/RP6RobotBaseLib.o
+                0x000003fa                enablePowerOnWarning
+                0x000017ac                mSleep
+                0x000005d4                __vector_1
+                0x00000706                setMotorPower
+                0x00000492                getBumperRight
+                0x00000654                MOTIONCONTROL_stateChanged_DUMMY
+                0x000008aa                IRCOMM_RC5dataReady_DUMMY
+                0x00000408                disablePowerOnWarning
+                0x0000046c                setLEDs
+                0x000016ba                rotate
+                0x0000072e                setMotorDir
+                0x00000f7a                extIntON
+                0x00000b9c                powerOFF
+                0x00000f5a                sleep
+                0x0000085c                __vector_3
+                0x00000410                updateStatusLEDs
+                0x00000f6a                delayCycles
+                0x00000754                IRCOMM_sendRC5
+                0x00000b28                disableACS
+                0x000004b0                BUMPERS_setStateChangedHandler
+                0x00000b76                setACSPwrMed
+                0x000008ac                IRCOMM_setRC5DataReadyHandler
+                0x000008b8                ACS_setStateChangedHandler
+                0x000004fa                readADC
+                0x0000159a                move
+                0x00000476                getBumperLeft
+                0x000008c2                task_ACS
+                0x00000660                moveAtSpeed
+                0x00000684                changeDirection
+                0x00000b80                setACSPwrHigh
+                0x00000b5e                setACSPwrOff
+                0x00000b6c                setACSPwrLow
+                0x00001012                emergencyShutdown
+                0x000004ba                task_Bumpers
+                0x00001588                task_RP6System
+                0x000008b6                ACS_stateChanged_DUMMY
+                0x00000798                __vector_4
+                0x00000b42                enableACS
+                0x00000614                __vector_2
+                0x00000f80                extIntOFF
+                0x00000518                startADC
+                0x00000b8a                powerON
+                0x00000656                MOTIONCONTROL_setStateChangedHandler
+                0x000010fe                task_motionControl
+                0x00000f86                initRobotBase
+                0x000004ae                BUMPERS_stateChanged_DUMMY
+                0x00000bc8                __vector_10
+                0x000006cc                stop
+                0x000006b8                isMovementComplete
+                0x00000522                task_ADC
+ .text          0x000017ca      0x1ea ../../RP6lib/RP6common/RP6uart.o
+                0x000017d2                writeString
+                0x0000191c                writeIntegerLength
+                0x00001880                waitUntilReceptionComplete
+                0x00001804                __vector_13
+                0x000018c4                writeInteger
+                0x000018b8                stopReception
+                0x00001872                receiveBytes
+                0x000017ca                writeChar
+                0x000017e6                writeStringLength
+                0x00001908                writeNStringP
+                0x0000188a                copyReceivedBytesToBuffer
+                0x00001998                receiveBytesToBuffer
+ .text          0x000019b4        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_mulsi3.o)
+ .text          0x000019b4        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
+ .text          0x000019b4        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
+ .text          0x000019b4        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
+ .text          0x000019b4        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .text          0x000019b4        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+ .text          0x000019b4        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+ .text          0x000019b4       0x42 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(itoa.o)
+                0x000019b4                itoa
+ .text          0x000019f6       0x20 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x000019f6                strrev
+                0x00001a16                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000019f2       0x3e c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_mulsi3.o)
-                0x000019f2                __mulsi3
- .text.libgcc   0x00001a30       0x28 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x00001a30                __udivmodhi4
- .text.libgcc   0x00001a58       0x26 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
-                0x00001a58                __divmodhi4
-                0x00001a58                _div
- .text.libgcc   0x00001a7e       0x44 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
-                0x00001a7e                __udivmodsi4
- .text.libgcc   0x00001ac2        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00001ac2        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00001ac2        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
-                0x00001ac2                . = ALIGN (0x2)
+ .text.libgcc   0x00001a16       0x3e c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_mulsi3.o)
+                0x00001a16                __mulsi3
+ .text.libgcc   0x00001a54       0x28 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x00001a54                __udivmodhi4
+ .text.libgcc   0x00001a7c       0x26 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_divmodhi4.o)
+                0x00001a7c                __divmodhi4
+                0x00001a7c                _div
+ .text.libgcc   0x00001aa2       0x44 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_udivmodsi4.o)
+                0x00001aa2                __udivmodsi4
+ .text.libgcc   0x00001ae6        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001ae6        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001ae6        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_clear_bss.o)
+                0x00001ae6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001ac2        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
-                0x00001ac2                exit
-                0x00001ac2                _exit
+ .fini9         0x00001ae6        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+                0x00001ae6                exit
+                0x00001ae6                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -394,11 +394,11 @@ LOAD c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001ac2        0x2 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001ae6        0x2 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001ac4                _etext = .
+                0x00001ae8                _etext = .
 
-.data           0x00800060        0xa load address 0x00001ac4
+.data           0x00800060        0xa load address 0x00001ae8
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/../../../../avr/lib/avr5/crtm32.o
@@ -516,8 +516,8 @@ LOAD c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
                 0x00800101                buffer_pos
                 0x00800102                uart_receive_buffer
                 0x00800112                PROVIDE (__bss_end, .)
-                0x00001ac4                __data_load_start = LOADADDR (.data)
-                0x00001ace                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001ae8                __data_load_start = LOADADDR (.data)
+                0x00001af2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800112        0x0
                 0x00800112                PROVIDE (__noinit_start, .)
@@ -584,24 +584,24 @@ LOAD c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
  .debug_pubnames
                 0x000008b3      0x157 ../../RP6lib/RP6common/RP6uart.o
 
-.debug_info     0x00000000     0x1d2f
+.debug_info     0x00000000     0x1d3a
  *(.debug_info)
- .debug_info    0x00000000      0x46f RP6Base_SerialInterface_01.o
- .debug_info    0x0000046f     0x144f ../../RP6lib/RP6base/RP6RobotBaseLib.o
- .debug_info    0x000018be      0x471 ../../RP6lib/RP6common/RP6uart.o
+ .debug_info    0x00000000      0x47a RP6Base_SerialInterface_01.o
+ .debug_info    0x0000047a     0x144f ../../RP6lib/RP6base/RP6RobotBaseLib.o
+ .debug_info    0x000018c9      0x471 ../../RP6lib/RP6common/RP6uart.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x647
+.debug_abbrev   0x00000000      0x654
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x137 RP6Base_SerialInterface_01.o
- .debug_abbrev  0x00000137      0x344 ../../RP6lib/RP6base/RP6RobotBaseLib.o
- .debug_abbrev  0x0000047b      0x1cc ../../RP6lib/RP6common/RP6uart.o
+ .debug_abbrev  0x00000000      0x144 RP6Base_SerialInterface_01.o
+ .debug_abbrev  0x00000144      0x344 ../../RP6lib/RP6base/RP6RobotBaseLib.o
+ .debug_abbrev  0x00000488      0x1cc ../../RP6lib/RP6common/RP6uart.o
 
-.debug_line     0x00000000     0x198c
+.debug_line     0x00000000     0x19a1
  *(.debug_line)
- .debug_line    0x00000000      0x26e RP6Base_SerialInterface_01.o
- .debug_line    0x0000026e     0x1443 ../../RP6lib/RP6base/RP6RobotBaseLib.o
- .debug_line    0x000016b1      0x2db ../../RP6lib/RP6common/RP6uart.o
+ .debug_line    0x00000000      0x283 RP6Base_SerialInterface_01.o
+ .debug_line    0x00000283     0x1443 ../../RP6lib/RP6base/RP6RobotBaseLib.o
+ .debug_line    0x000016c6      0x2db ../../RP6lib/RP6common/RP6uart.o
 
 .debug_frame    0x00000000      0x430
  *(.debug_frame)
@@ -609,13 +609,13 @@ LOAD c:/winavr-20070525/bin/../lib/gcc/avr/4.1.2/avr5\libgcc.a
  .debug_frame   0x00000030      0x330 ../../RP6lib/RP6base/RP6RobotBaseLib.o
  .debug_frame   0x00000360       0xd0 ../../RP6lib/RP6common/RP6uart.o
 
-.debug_str      0x00000000      0xba3
+.debug_str      0x00000000      0xbb2
  *(.debug_str)
- .debug_str     0x00000000      0x221 RP6Base_SerialInterface_01.o
-                                0x281 (size before relaxing)
- .debug_str     0x00000221      0x812 ../../RP6lib/RP6base/RP6RobotBaseLib.o
+ .debug_str     0x00000000      0x230 RP6Base_SerialInterface_01.o
+                                0x290 (size before relaxing)
+ .debug_str     0x00000230      0x812 ../../RP6lib/RP6base/RP6RobotBaseLib.o
                                 0xa7e (size before relaxing)
- .debug_str     0x00000a33      0x170 ../../RP6lib/RP6common/RP6uart.o
+ .debug_str     0x00000a42      0x170 ../../RP6lib/RP6common/RP6uart.o
                                 0x29e (size before relaxing)
 
 .debug_loc      0x00000000      0x471
@@ -774,6 +774,7 @@ motion_status                                     ../../RP6lib/RP6base/RP6RobotB
 motion_status_tmp                                 ../../RP6lib/RP6base/RP6RobotBaseLib.o
 motor_control                                     ../../RP6lib/RP6base/RP6RobotBaseLib.o
 move                                              ../../RP6lib/RP6base/RP6RobotBaseLib.o
+                                                  RP6Base_SerialInterface_01.o
 moveAtSpeed                                       ../../RP6lib/RP6base/RP6RobotBaseLib.o
                                                   RP6Base_SerialInterface_01.o
 mright_counter                                    ../../RP6lib/RP6base/RP6RobotBaseLib.o
@@ -806,6 +807,7 @@ receiveBytes                                      ../../RP6lib/RP6common/RP6uart
 receiveBytesToBuffer                              ../../RP6lib/RP6common/RP6uart.o
 right_i                                           ../../RP6lib/RP6base/RP6RobotBaseLib.o
 rotate                                            ../../RP6lib/RP6base/RP6RobotBaseLib.o
+                                                  RP6Base_SerialInterface_01.o
 setACSPwrHigh                                     ../../RP6lib/RP6base/RP6RobotBaseLib.o
 setACSPwrLow                                      ../../RP6lib/RP6base/RP6RobotBaseLib.o
 setACSPwrMed                                      ../../RP6lib/RP6base/RP6RobotBaseLib.o
